@@ -6,9 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install Fastlane
-        run: |
-          sudo gem install bundler
-          bundle install
+  run: |
+    sudo gem install bundler
+    cd $GITHUB_WORKSPACE    # 确保进入仓库根目录
+    bundle install
       - name: Build IPA
         env:
           APPLE_ID: ${{ secrets.APPLE_ID }}
