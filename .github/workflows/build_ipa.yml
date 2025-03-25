@@ -8,6 +8,7 @@ jobs:
       - name: Install Fastlane
   run: |
     sudo gem install bundler
+    BUNDLE_GEMFILE=$GITHUB_WORKSPACE/Gemfile bundle install
     cd $GITHUB_WORKSPACE    # 确保进入仓库根目录
     bundle install
       - name: Build IPA
