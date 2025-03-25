@@ -1,0 +1,6 @@
+lane :build_ipa do
+  build_app(
+    scheme: "DE进度面板",
+    export_method: "development"  # 用免费开发者账号签名
+  )
+end
