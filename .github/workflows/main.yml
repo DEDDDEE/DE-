@@ -1,0 +1,17 @@
+name: Build iOS IPA
+on: [push]
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Fastlane
+        run: |
+          sudo gem install bundler
+          bundle install
+      - name: Build IPA
+        env:
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
+        run: |
+          fastlane build_ipa
